@@ -34,7 +34,6 @@ REQ_LATENCY = Histogram(
 @app.before_request
 def _start_timer():
     request._start = time.perf_counter()
-    # TODO 4 — request_id depuis le header ou généré
     request._request_id = request.headers.get("X-Request-ID", str(uuid.uuid4()))
 
 
